@@ -212,7 +212,7 @@ export default function SkillsRadar() {
                             key={i}
                             x={x}
                             y={y}
-                            textAnchor={textAnchor}
+                            textAnchor={textAnchor as any}
                             dominantBaseline="middle"
                             className="text-[10px] md:text-xs font-mono font-medium select-none cursor-pointer tracking-wider"
                             style={{
