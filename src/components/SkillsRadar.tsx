@@ -202,7 +202,7 @@ export default function SkillsRadar() {
                     const isHidden = hiddenSkills.has(i);
 
                     // Adjust alignment based on position
-                    let textAnchor = "middle";
+                    let textAnchor: "start" | "middle" | "end" = "middle";
                     if (Math.abs(x - center) > 10) {
                         textAnchor = x > center ? "start" : "end";
                     }
