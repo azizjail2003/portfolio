@@ -15,6 +15,8 @@ import { ThemeProvider } from './components/ThemeProvider';
 import Intro from './components/Intro';
 import { BackgroundGrid } from './components/BackgroundGrid';
 
+import { ShootingStars } from './components/ShootingStars';
+
 function App() {
   const [activeSection, setActiveSection] = useState('overview');
 
@@ -40,6 +42,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Intro />
       <BackgroundGrid />
+      <ShootingStars />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

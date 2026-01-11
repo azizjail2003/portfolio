@@ -64,10 +64,10 @@ export function Contact() {
                     </div>
 
                     <div className="mt-12 flex justify-center gap-6">
-                        <a href="https://linkedin.com" className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-colors">
+                        <a href="https://linkedin.com/in/azizjail" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-muted hover:bg-teal-500/10 hover:text-teal-500 transition-colors">
                             <Linkedin className="w-6 h-6" />
                         </a>
-                        <a href="https://github.com" className="p-3 rounded-full bg-muted hover:bg-muted/80 transition-colors">
+                        <a href="https://github.com/azizjail2003" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-muted hover:bg-teal-500/10 hover:text-teal-500 transition-colors">
                             <Github className="w-6 h-6" />
                         </a>
                     </div>

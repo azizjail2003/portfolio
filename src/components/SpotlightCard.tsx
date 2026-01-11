@@ -5,12 +5,14 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     className?: string;
     spotlightColor?: string;
+    delay?: number;
 }
 
 export default function SpotlightCard({
     children,
     className = "",
     spotlightColor = "rgba(255, 255, 255, 0.15)",
+    delay = 0,
     ...props
 }: SpotlightCardProps) {
     const divRef = useRef<HTMLDivElement>(null);
@@ -52,7 +54,7 @@ export default function SpotlightCard({
             onMouseLeave={handleMouseLeave}
             className={`relative rounded-xl border border-border bg-background overflow-hidden ${className}`}
             whileHover={{ y: -5, scale: 1.01 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, delay }}
             {...(props as any)}
         >
             <div

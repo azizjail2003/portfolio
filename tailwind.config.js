@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        contrail: ['"Contrail One"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

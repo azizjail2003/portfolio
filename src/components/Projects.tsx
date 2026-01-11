@@ -107,6 +107,7 @@ export default function Projects() {
                                     ))}
                                 </div>
                             </div>
+
                         </motion.div>
                     ))}
                 </div>
@@ -117,6 +118,6 @@ export default function Projects() {
                     </p>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

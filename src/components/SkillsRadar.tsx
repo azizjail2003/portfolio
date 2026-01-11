@@ -13,17 +13,17 @@ export default function SkillsRadar() {
     const [hiddenSkills, setHiddenSkills] = useState<Set<number>>(new Set());
 
     const skills: SkillData[] = [
-        { label: 'Backend', value: 95, color: '#3b82f6' },
-        { label: 'n8n Automation', value: 75, color: '#8b5cf6' },
-        { label: 'Database', value: 90, color: '#10b981' },
+        { label: 'Backend', value: 95, color: '#14b8a6' },
+        { label: 'n8n Automation', value: 75, color: '#10b981' },
+        { label: 'Database', value: 90, color: '#06b6d4' },
         { label: 'DevOps', value: 70, color: '#f59e0b' },
-        { label: 'API Design', value: 95, color: '#ec4899' },
-        { label: 'System Architecture', value: 85, color: '#06b6d4' },
+        { label: 'API Design', value: 95, color: '#2dd4bf' },
+        { label: 'System Architecture', value: 85, color: '#22c55e' },
     ];
 
     const size = 300;
     const center = size / 2;
-    const maxRadius = size / 2 - 40;
+    const maxRadius = size / 2 - 55; // Increased padding for labels (was 40)
     const levels = 5;
 
     const toggleSkill = (index: number) => {
@@ -53,8 +53,8 @@ export default function SkillsRadar() {
     const pathData = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
 
     return (
-        <div className="relative w-[300px] h-[300px] flex items-center justify-center">
-            <svg width={size} height={size} className="relative z-10">
+        <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
+            <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`} className="relative z-10 max-w-[350px]">
                 <defs>
                     {/* Gradient for the skill polygon */}
                     <radialGradient id="skillGradient" cx="50%" cy="50%" r="50%">
@@ -201,18 +201,24 @@ export default function SkillsRadar() {
                     const isHighlighted = hoveredSkill === i || selectedSkill === i;
                     const isHidden = hiddenSkills.has(i);
 
+                    // Adjust alignment based on position
+                    let textAnchor = "middle";
+                    if (Math.abs(x - center) > 10) {
+                        textAnchor = x > center ? "start" : "end";
+                    }
+
                     return (
                         <motion.text
                             key={i}
                             x={x}
                             y={y}
-                            textAnchor="middle"
+                            textAnchor={textAnchor}
                             dominantBaseline="middle"
-                            className="text-xs font-mono font-semibold fill-current select-none cursor-pointer"
+                            className="text-[10px] md:text-xs font-mono font-medium select-none cursor-pointer tracking-wider"
                             style={{
-                                color: isHighlighted ? skill.color : 'rgb(148, 163, 184)',
                                 textDecoration: isHidden ? 'line-through' : 'none'
                             }}
+                            fill={isHighlighted ? skill.color : 'rgb(148, 163, 184)'}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: isHidden ? 0.4 : 1 }}
                             transition={{ delay: 1.2 + i * 0.05, duration: 0.3 }}
